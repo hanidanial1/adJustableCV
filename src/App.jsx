@@ -449,12 +449,12 @@ function SignaturePad() {
     context.lineJoin = "round";
     context.lineCap = "round";
     context.beginPath();
-    document.body.style.overflow = "hidden";
+    disableScroll();
   };
 
   const endDrawing = () => {
     setIsDrawing(false);
-    document.body.style.overflow = "auto";
+    enableScroll();
   };
 
   const draw = (e) => {
@@ -483,6 +483,33 @@ function SignaturePad() {
     downloadLink.click();
   };
 
+  const disableScroll = () => {
+    // Disable scrolling for touch devices
+    document.addEventListener("touchmove", preventDefault, { passive: false });
+
+    // Disable scrolling for mouse devices
+    document.addEventListener("wheel", preventDefault, { passive: false });
+  };
+
+  const enableScroll = () => {
+    // Enable scrolling for touch devices
+    document.removeEventListener("touchmove", preventDefault);
+
+    // Enable scrolling for mouse devices
+    document.removeEventListener("wheel", preventDefault);
+  };
+
+  const preventDefault = (e) => {
+    e.preventDefault();
+  };
+
+  // Cleanup event listeners on component unmount
+  useEffect(() => {
+    return () => {
+      enableScroll();
+    };
+  }, []);
+
   return (
     <div>
       <canvas
@@ -494,7 +521,7 @@ function SignaturePad() {
         onMouseUp={endDrawing}
         onMouseMove={draw}
         onMouseLeave={endDrawing}
-        onTouchStart={startDrawing} 
+        onTouchStart={startDrawing}
         onTouchEnd={endDrawing}
         onTouchMove={draw}
       ></canvas>
@@ -503,9 +530,6 @@ function SignaturePad() {
     </div>
   );
 }
-
-
-
 
 
 
