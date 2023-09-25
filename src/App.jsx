@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useState,useRef , useEffect} from "react";
 
 function App() {
   const currentDate = new Date();
@@ -430,7 +430,6 @@ function App() {
   );
 }
 
-
 function SignaturePad() {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
@@ -442,15 +441,30 @@ function SignaturePad() {
   const lineWidth = 2;
   const lineColor = "lightblue";
 
-  const startDrawing = () => {
-    setIsDrawing(true);
+  useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
+
+    // Set initial canvas styles
     context.strokeStyle = lineColor;
     context.lineWidth = lineWidth;
     context.lineJoin = "round";
     context.lineCap = "round";
+  }, []);
+
+  const startDrawing = (e) => {
+    e.preventDefault();
+    setIsDrawing(true);
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+
+    // Get the coordinates relative to the canvas
+    const rect = canvas.getBoundingClientRect();
+    const offsetX = e.touches ? e.touches[0].clientX - rect.left : e.nativeEvent.offsetX;
+    const offsetY = e.touches ? e.touches[0].clientY - rect.top : e.nativeEvent.offsetY;
+
     context.beginPath();
+    context.moveTo(offsetX, offsetY);
   };
 
   const endDrawing = () => {
@@ -459,10 +473,17 @@ function SignaturePad() {
 
   const draw = (e) => {
     if (!isDrawing) return;
+    e.preventDefault();
 
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-    context.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
+
+    // Get the coordinates relative to the canvas
+    const rect = canvas.getBoundingClientRect();
+    const offsetX = e.touches ? e.touches[0].clientX - rect.left : e.nativeEvent.offsetX;
+    const offsetY = e.touches ? e.touches[0].clientY - rect.top : e.nativeEvent.offsetY;
+
+    context.lineTo(offsetX, offsetY);
     context.stroke();
   };
 
@@ -484,22 +505,23 @@ function SignaturePad() {
     downloadLink.click();
   };
 
-
   return (
     <div>
-    <canvas
-      ref={canvasRef}
-      width={canvasWidth}
-      height={canvasHeight}
-      style={{ border: "1px solid #000" }}
-      onMouseDown={startDrawing}
-      onMouseUp={endDrawing}
-      onMouseMove={draw}
-      onMouseLeave={endDrawing}
-    ></canvas>
-    <button onClick={clearCanvas}>Clear</button>
-    <button onClick={downloadCanvas}>Download as PNG</button>
-  </div>
+      <canvas
+        ref={canvasRef}
+        width={canvasWidth}
+        height={canvasHeight}
+        style={{ border: "1px solid #000" }}
+        onMouseDown={startDrawing}
+        onMouseUp={endDrawing}
+        onMouseMove={draw}
+        onTouchStart={startDrawing}
+        onTouchEnd={endDrawing}
+        onTouchMove={draw}
+      ></canvas>
+      <button onClick={clearCanvas}>Clear</button>
+      <button onClick={downloadCanvas}>Download as PNG</button>
+    </div>
   );
 }
 
