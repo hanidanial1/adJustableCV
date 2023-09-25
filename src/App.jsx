@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import PDFComponent from "./PDFCompoenet";
+
 
 function App() {
   const currentDate = new Date();
@@ -25,7 +27,7 @@ function App() {
   };
 
   // worktitle
-  const [soknad, setSoknad] = useState("Soknad som");
+  const [soknad, setSoknad] = useState("Søknad som");
   const [isEditingSokand, setIsEditingSoknad] = useState(false);
   const [newSoknad, setNewSokand] = useState(soknad);
 
@@ -165,6 +167,18 @@ function App() {
 
   return (
     <>
+          <PDFComponent
+                  Date={formattedDate}
+                  adressJob={adressejobben}
+                  Soknad={soknad}
+                  p={Body}
+                  p1={Body1}
+                  p2={Body2}
+                  p3={Body3}
+                  p4={Body4}
+                  p5={Body5}
+                />
+                
       <div className="p-4 w-75">
         <br />
         <h3>Lena Cohen</h3>
@@ -399,107 +413,21 @@ function App() {
                 )}
                 <h4 className="mx-4"> Vennlig hilsen.</h4>
                 <br />
-                <img src="https://res.cloudinary.com/ddcbxytoh/image/upload/v1695657527/sign_x5wrsw.png" width="30%" alt="" />
+                <img
+                  src="https://res.cloudinary.com/ddcbxytoh/image/upload/v1695657527/sign_x5wrsw.png"
+                  width="30%"
+                  alt=""
+                />
                 <br /> <br />
                 <h4 className="mx-4">Lena Cohen</h4>
+
+          
               </div>
             </div>
           </div>
         </div>
       </div>
     </>
-  );
-}
-
-function SignaturePad() {
-  const canvasRef = useRef(null);
-  const [isDrawing, setIsDrawing] = useState(false);
-
-  const canvasWidth = 300;
-  const canvasHeight = 150;
-  const canvasBackgroundColor = "#fff";
-  const lineWidth = 2;
-  const lineColor = "lightblue";
-
-  const startDrawing = (e) => {
-    e.preventDefault(); // Prevent default touch behavior
-    setIsDrawing(true);
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-    context.strokeStyle = lineColor;
-    context.lineWidth = lineWidth;
-    context.lineJoin = "round";
-    context.lineCap = "round";
-    context.beginPath();
-    disableScroll();
-  };
-
-  const endDrawing = () => {
-    setIsDrawing(false);
-    enableScroll();
-  };
-
-  const draw = (e) => {
-    if (!isDrawing) return;
-
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-    context.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
-    context.stroke();
-  };
-
-  const clearCanvas = () => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-    context.fillStyle = canvasBackgroundColor;
-    context.fillRect(0, 0, canvasWidth, canvasHeight);
-  };
-
-  const downloadCanvas = () => {
-    const canvas = canvasRef.current;
-    const dataURL = canvas.toDataURL("image/png");
-
-    const downloadLink = document.createElement("a");
-    downloadLink.href = dataURL;
-    downloadLink.download = "signature.png";
-    downloadLink.click();
-  };
-
-  const disableScroll = () => {
-    // Disable scrolling for touch devices
-    document.body.style.overflow = "hidden";
-  };
-
-  const enableScroll = () => {
-    // Enable scrolling for touch devices
-    document.body.style.overflow = "auto";
-  };
-
-  // Cleanup event listeners on component unmount
-  useEffect(() => {
-    return () => {
-      enableScroll();
-    };
-  }, []);
-
-  return (
-    <div>
-      <canvas
-        ref={canvasRef}
-        width={canvasWidth}
-        height={canvasHeight}
-        style={{ border: "1px solid #000" }}
-        onMouseDown={startDrawing}
-        onMouseUp={endDrawing}
-        onMouseMove={draw}
-        onMouseLeave={endDrawing}
-        onTouchStart={startDrawing}
-        onTouchEnd={endDrawing}
-        onTouchMove={draw}
-      ></canvas>
-      <button onClick={clearCanvas}>Clear</button>
-      <button onClick={downloadCanvas}>Download as PNG</button>
-    </div>
   );
 }
 
