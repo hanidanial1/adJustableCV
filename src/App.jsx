@@ -434,56 +434,35 @@ function SignaturePad() {
   const canvasRef = useRef(null);
   const [isDrawing, setIsDrawing] = useState(false);
 
-  // Set up initial canvas properties
   const canvasWidth = 300;
   const canvasHeight = 150;
   const canvasBackgroundColor = "#fff";
   const lineWidth = 2;
   const lineColor = "lightblue";
 
-  useEffect(() => {
+  const startDrawing = () => {
+    setIsDrawing(true);
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-
-    // Set initial canvas styles
     context.strokeStyle = lineColor;
     context.lineWidth = lineWidth;
     context.lineJoin = "round";
     context.lineCap = "round";
-  }, []);
-
-  const startDrawing = (e) => {
-    e.preventDefault();
-    setIsDrawing(true);
-    const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
-
-    // Get the coordinates relative to the canvas
-    const rect = canvas.getBoundingClientRect();
-    const offsetX = e.touches ? e.touches[0].clientX - rect.left : e.nativeEvent.offsetX;
-    const offsetY = e.touches ? e.touches[0].clientY - rect.top : e.nativeEvent.offsetY;
-
     context.beginPath();
-    context.moveTo(offsetX, offsetY);
+    document.body.style.overflow = "hidden";
   };
 
   const endDrawing = () => {
     setIsDrawing(false);
+    document.body.style.overflow = "auto";
   };
 
   const draw = (e) => {
     if (!isDrawing) return;
-    e.preventDefault();
 
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
-
-    // Get the coordinates relative to the canvas
-    const rect = canvas.getBoundingClientRect();
-    const offsetX = e.touches ? e.touches[0].clientX - rect.left : e.nativeEvent.offsetX;
-    const offsetY = e.touches ? e.touches[0].clientY - rect.top : e.nativeEvent.offsetY;
-
-    context.lineTo(offsetX, offsetY);
+    context.lineTo(e.nativeEvent.offsetX, e.nativeEvent.offsetY);
     context.stroke();
   };
 
@@ -498,10 +477,9 @@ function SignaturePad() {
     const canvas = canvasRef.current;
     const dataURL = canvas.toDataURL("image/png");
 
-    // Create a temporary link element to trigger the download
     const downloadLink = document.createElement("a");
     downloadLink.href = dataURL;
-    downloadLink.download = "signature.png"; // Set the desired filename
+    downloadLink.download = "signature.png";
     downloadLink.click();
   };
 
@@ -515,7 +493,8 @@ function SignaturePad() {
         onMouseDown={startDrawing}
         onMouseUp={endDrawing}
         onMouseMove={draw}
-        onTouchStart={startDrawing}
+        onMouseLeave={endDrawing}
+        onTouchStart={startDrawing} 
         onTouchEnd={endDrawing}
         onTouchMove={draw}
       ></canvas>
@@ -524,7 +503,6 @@ function SignaturePad() {
     </div>
   );
 }
-
 
 
 
