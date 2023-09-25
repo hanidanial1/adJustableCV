@@ -235,7 +235,6 @@ function App() {
                     </p>
                   )}
                 </div>
-
                 {isEditingBody ? (
                   <>
                     <textarea
@@ -263,7 +262,6 @@ function App() {
                     {Body}
                   </p>
                 )}
-
                 {isEditingBody1 ? (
                   <>
                     <textarea
@@ -291,7 +289,6 @@ function App() {
                     {Body1}
                   </p>
                 )}
-
                 {isEditingBody2 ? (
                   <>
                     <textarea
@@ -319,7 +316,6 @@ function App() {
                     {Body2}
                   </p>
                 )}
-
                 {isEditingBody3 ? (
                   <>
                     <textarea
@@ -347,7 +343,6 @@ function App() {
                     {Body3}
                   </p>
                 )}
-
                 {isEditingBody4 ? (
                   <>
                     <textarea
@@ -375,7 +370,6 @@ function App() {
                     {Body4}
                   </p>
                 )}
-
                 {isEditingBody5 ? (
                   <>
                     <textarea
@@ -403,15 +397,11 @@ function App() {
                     {Body5}
                   </p>
                 )}
-           
-                  <h4 className="mx-4"> Vennlig hilsen.</h4>
-
-                  <SignaturePad />
-
-                  <h4 className="mx-4">Lena Cohen</h4>
-
-               
-             
+                <h4 className="mx-4"> Vennlig hilsen.</h4>
+                <br />
+                <img src="../public/sign.png" width="30%" alt="" />
+                <br /> <br />
+                <h4 className="mx-4">Lena Cohen</h4>
               </div>
             </div>
           </div>
@@ -512,6 +502,5 @@ function SignaturePad() {
     </div>
   );
 }
-
 
 export default App;
