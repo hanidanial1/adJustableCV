@@ -1,4 +1,4 @@
-import React, { useState,useRef , useEffect} from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 function App() {
   const currentDate = new Date();
@@ -200,232 +200,223 @@ function App() {
         {formattedDate}
       </p>
       <div className="col-lg-10 col-md-12">
-  <div className="w-100 ">
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-1 col-md-0"></div> 
-        <div className="col-lg-10 col-md-12">
-      <div className="p-4 w-75">
-        {isEditingSokand ? (
-          <>
-            <input
-              type="text"
-              value={newSoknad}
-              onChange={(e) => setNewSokand(e.target.value)}
-            />
-            <button
-              className="btn btn-primary mx-1"
-              onClick={handleSaveClickSoknad}
-            >
-              Save
-            </button>
-            <button
-              className="btn btn-primary mx-1"
-              onClick={handleCancelClickSoknad}
-            >
-              Cancel
-            </button>
-          </>
-        ) : (
-          <p
-            style={{ fontWeight: "600", fontSize: "22px" }}
-            onClick={() => handleSoknadClick()}
-          >
-            {soknad}
-          </p>
-        )}
+        <div className="w-100 ">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-1 col-md-0"></div>
+              <div className="col-lg-10 col-md-12">
+                <div className="p-4 w-75">
+                  {isEditingSokand ? (
+                    <>
+                      <input
+                        type="text"
+                        value={newSoknad}
+                        onChange={(e) => setNewSokand(e.target.value)}
+                      />
+                      <button
+                        className="btn btn-primary mx-1"
+                        onClick={handleSaveClickSoknad}
+                      >
+                        Save
+                      </button>
+                      <button
+                        className="btn btn-primary mx-1"
+                        onClick={handleCancelClickSoknad}
+                      >
+                        Cancel
+                      </button>
+                    </>
+                  ) : (
+                    <p
+                      style={{ fontWeight: "600", fontSize: "22px" }}
+                      onClick={() => handleSoknadClick()}
+                    >
+                      {soknad}
+                    </p>
+                  )}
+                </div>
+
+                {isEditingBody ? (
+                  <>
+                    <textarea
+                      type="text"
+                      value={newBody}
+                      onChange={(e) => setNewBody(e.target.value)}
+                      cols={70}
+                      rows={5}
+                    />
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleSaveClickBody}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleCancelClickBody}
+                    >
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <p className="mx-4" onClick={() => handleBodyClick()}>
+                    {Body}
+                  </p>
+                )}
+
+                {isEditingBody1 ? (
+                  <>
+                    <textarea
+                      type="text"
+                      value={newBody1}
+                      onChange={(e) => setNewBody1(e.target.value)}
+                      cols={70}
+                      rows={5}
+                    />
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleSaveClickBody1}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleCancelClickBody1}
+                    >
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <p className="mx-4" onClick={() => handleBody1Click()}>
+                    {Body1}
+                  </p>
+                )}
+
+                {isEditingBody2 ? (
+                  <>
+                    <textarea
+                      type="text"
+                      value={newBody2}
+                      onChange={(e) => setNewBody2(e.target.value)}
+                      cols={70}
+                      rows={5}
+                    />
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleSaveClickBody2}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleCancelClickBody2}
+                    >
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <p className="mx-4" onClick={() => handleBody2Click()}>
+                    {Body2}
+                  </p>
+                )}
+
+                {isEditingBody3 ? (
+                  <>
+                    <textarea
+                      type="text"
+                      value={newBody3}
+                      onChange={(e) => setNewBody3(e.target.value)}
+                      cols={70}
+                      rows={5}
+                    />
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleSaveClickBody3}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleCancelClickBody3}
+                    >
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <p className="mx-4" onClick={() => handleBody3Click()}>
+                    {Body3}
+                  </p>
+                )}
+
+                {isEditingBody4 ? (
+                  <>
+                    <textarea
+                      type="text"
+                      value={newBody4}
+                      onChange={(e) => setNewBody4(e.target.value)}
+                      cols={70}
+                      rows={5}
+                    />
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleSaveClickBody4}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleCancelClickBody4}
+                    >
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <p className="mx-4" onClick={() => handleBody4Click()}>
+                    {Body4}
+                  </p>
+                )}
+
+                {isEditingBody5 ? (
+                  <>
+                    <textarea
+                      type="text"
+                      value={newBody5}
+                      onChange={(e) => setNewBody5(e.target.value)}
+                      cols={70}
+                      rows={5}
+                    />
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleSaveClickBody5}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className="btn btn-primary mx-1"
+                      onClick={handleCancelClickBody5}
+                    >
+                      Cancel
+                    </button>
+                  </>
+                ) : (
+                  <p className="mx-4" onClick={() => handleBody5Click()}>
+                    {Body5}
+                  </p>
+                )}
+           
+                  <h4 className="mx-4"> Vennlig hilsen.</h4>
+
+                  <SignaturePad />
+
+                  <h4 className="mx-4">Lena Cohen</h4>
+
+               
+             
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
-      {isEditingBody ? (
-        <>
-          <textarea
-            type="text"
-            value={newBody}
-            onChange={(e) => setNewBody(e.target.value)}
-            cols={70}
-            rows={5}
-          />
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleSaveClickBody}
-          >
-            Save
-          </button>
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleCancelClickBody}
-          >
-            Cancel
-          </button>
-        </>
-      ) : (
-        <p className="mx-4" onClick={() => handleBodyClick()}>
-          {Body}
-        </p>
-      )}
-
-      {isEditingBody1 ? (
-        <>
-          <textarea
-            type="text"
-            value={newBody1}
-            onChange={(e) => setNewBody1(e.target.value)}
-            cols={70}
-            rows={5}
-          />
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleSaveClickBody1}
-          >
-            Save
-          </button>
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleCancelClickBody1}
-          >
-            Cancel
-          </button>
-        </>
-      ) : (
-        <p className="mx-4" onClick={() => handleBody1Click()}>
-          {Body1}
-        </p>
-      )}
-
-      {isEditingBody2 ? (
-        <>
-          <textarea
-            type="text"
-            value={newBody2}
-            onChange={(e) => setNewBody2(e.target.value)}
-            cols={70}
-            rows={5}
-          />
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleSaveClickBody2}
-          >
-            Save
-          </button>
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleCancelClickBody2}
-          >
-            Cancel
-          </button>
-        </>
-      ) : (
-        <p className="mx-4" onClick={() => handleBody2Click()}>
-          {Body2}
-        </p>
-      )}
-
-      {isEditingBody3 ? (
-        <>
-          <textarea
-            type="text"
-            value={newBody3}
-            onChange={(e) => setNewBody3(e.target.value)}
-            cols={70}
-            rows={5}
-          />
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleSaveClickBody3}
-          >
-            Save
-          </button>
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleCancelClickBody3}
-          >
-            Cancel
-          </button>
-        </>
-      ) : (
-        <p className="mx-4" onClick={() => handleBody3Click()}>
-          {Body3}
-        </p>
-      )}
-
-      {isEditingBody4 ? (
-        <>
-          <textarea
-            type="text"
-            value={newBody4}
-            onChange={(e) => setNewBody4(e.target.value)}
-            cols={70}
-            rows={5}
-          />
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleSaveClickBody4}
-          >
-            Save
-          </button>
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleCancelClickBody4}
-          >
-            Cancel
-          </button>
-        </>
-      ) : (
-        <p className="mx-4" onClick={() => handleBody4Click()}>
-          {Body4}
-        </p>
-      )}
-
-      {isEditingBody5 ? (
-        <>
-          <textarea
-            type="text"
-            value={newBody5}
-            onChange={(e) => setNewBody5(e.target.value)}
-            cols={70}
-            rows={5}
-          />
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleSaveClickBody5}
-          >
-            Save
-          </button>
-          <button
-            className="btn btn-primary mx-1"
-            onClick={handleCancelClickBody5}
-          >
-            Cancel
-          </button>
-        </>
-      ) : (
-        <p className="mx-4" onClick={() => handleBody5Click()}>
-          {Body5}
-        </p>
-      )}
-
-
-
-
-      </div>
-      </div>
-
-      
-<h4 >  Vennlig hilsen.</h4>
-
-<SignaturePad />
-
-
-
-<h4>Lena Cohen</h4>
-        <div className="col-lg-1 col-md-0"></div> 
-      </div>
-    </div>
-
-
-
-  </div>
-
     </>
   );
 }
@@ -440,7 +431,8 @@ function SignaturePad() {
   const lineWidth = 2;
   const lineColor = "lightblue";
 
-  const startDrawing = () => {
+  const startDrawing = (e) => {
+    e.preventDefault(); // Prevent default touch behavior
     setIsDrawing(true);
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
@@ -485,22 +477,12 @@ function SignaturePad() {
 
   const disableScroll = () => {
     // Disable scrolling for touch devices
-    document.addEventListener("touchmove", preventDefault, { passive: false });
-
-    // Disable scrolling for mouse devices
-    document.addEventListener("wheel", preventDefault, { passive: false });
+    document.body.style.overflow = "hidden";
   };
 
   const enableScroll = () => {
     // Enable scrolling for touch devices
-    document.removeEventListener("touchmove", preventDefault);
-
-    // Enable scrolling for mouse devices
-    document.removeEventListener("wheel", preventDefault);
-  };
-
-  const preventDefault = (e) => {
-    e.preventDefault();
+    document.body.style.overflow = "auto";
   };
 
   // Cleanup event listeners on component unmount
@@ -530,7 +512,6 @@ function SignaturePad() {
     </div>
   );
 }
-
 
 
 export default App;
