@@ -399,7 +399,7 @@ function App() {
                 )}
                 <h4 className="mx-4"> Vennlig hilsen.</h4>
                 <br />
-                <img src="../public/sign.png" width="30%" alt="" />
+                <img src="https://res.cloudinary.com/ddcbxytoh/image/upload/v1695657527/sign_x5wrsw.png" width="30%" alt="" />
                 <br /> <br />
                 <h4 className="mx-4">Lena Cohen</h4>
               </div>
