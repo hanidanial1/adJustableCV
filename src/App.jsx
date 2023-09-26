@@ -9,8 +9,7 @@ function App() {
     useContext(TextContext);
 
   const [imgSrc, setImgSrc] = useState(
-    "https://res.cloudinary.com/ddcbxytoh/image/upload/v1695657527/sign_x5wrsw.png"
-  );
+  "https://res.cloudinary.com/ddcbxytoh/image/upload/v1695736776/IMG_9582_odaiwq.jpg");
   const [inputSrc, setInputSrc] = useState(imgSrc);
   const [adressejobben, setAdresseJobben] = useState("adresse jobben");
   const [isEditingAddress, setIsEditingAddress] = useState(false);
