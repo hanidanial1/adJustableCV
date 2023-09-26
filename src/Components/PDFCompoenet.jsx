@@ -11,13 +11,6 @@ import {
 
 import React, { useState } from "react";
 
-Font.register({
-  family: "FamilyName",
-  src: "../../lora.ttf",
-  fontStyle: "normal",
-  fontWeight: "normal",
-  fonts: [],
-});
 const styles = StyleSheet.create({
   page: {
     backgroundColor: "white",
@@ -77,9 +70,13 @@ const PDFComponent = ({ Date, adressJob, Soknad, p, p1, p2, p3, p4, p5 }) => {
   };
   return (
     <div>
-      <button onClick={handleGeneratePDF}>Generate PDF</button>
+      <button className="btn btn-success m-4"  onClick={handleGeneratePDF}>Generate PDF</button>
       {showPDF && (
         <div>
+          {/* here the pdf viewer to see in the page what happen
+           this is should be one to one with the download file
+        
+          */}
           <PDFViewer width="100%" height="500">
             <Document>
               <Page size="A4" style={styles.page}>
@@ -109,6 +106,10 @@ const PDFComponent = ({ Date, adressJob, Soknad, p, p1, p2, p3, p4, p5 }) => {
               </Page>
             </Document>
           </PDFViewer>
+
+
+
+          {/* here the download file  */}
           <PDFDownloadLink
             document={
               <Document>
