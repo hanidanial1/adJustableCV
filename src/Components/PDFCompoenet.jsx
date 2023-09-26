@@ -107,10 +107,8 @@ const PDFComponent = ({ Date, adressJob, Soknad, p, p1, p2, p3, p4, p5 }) => {
             </Document>
           </PDFViewer>
 
-
-
           {/* here the download file  */}
-          <PDFDownloadLink
+          <PDFDownloadLink className="btn btn-success m-4"
             document={
               <Document>
                 <Page size="A4" style={styles.page}>
