@@ -70,7 +70,7 @@ const PDFComponent = ({ Date, adressJob, Soknad, p, p1, p2, p3, p4, p5 }) => {
   };
   return (
     <div>
-      <button className="btn btn-success m-4"  onClick={handleGeneratePDF}>Generate PDF</button>
+      <button className="btn btn-success m-4"  onClick={handleGeneratePDF}>Generate PDF then Download </button>
       {showPDF && (
         <div>
           {/* here the pdf viewer to see in the page what happen
