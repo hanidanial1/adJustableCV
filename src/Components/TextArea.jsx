@@ -46,7 +46,7 @@ function EditableTextList({ initialArray }) {
                 value={editValue}
                 onChange={(e) => setEditValue(e.target.value)}
                 cols={30}
-                rows={5}
+                rows={20}
               ></textarea>
 
               <button

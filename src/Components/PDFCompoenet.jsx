@@ -102,7 +102,7 @@ const PDFComponent = ({ Date, adressJob, Soknad, p, p1, p2, p3, p4, p5 }) => {
                   }
                   style={styles.image}
                 />
-                <Text style={styles.ending}>Lena Cohen.</Text>
+                <Text style={styles.ending}>Lena Cohen</Text>
               </Page>
             </Document>
           </PDFViewer>
@@ -136,7 +136,7 @@ const PDFComponent = ({ Date, adressJob, Soknad, p, p1, p2, p3, p4, p5 }) => {
                     }
                     style={styles.image}
                   />
-                  <Text style={styles.ending}>Lena Cohen.</Text>
+                  <Text style={styles.ending}>Lena Cohen</Text>
                 </Page>
               </Document>
             }
