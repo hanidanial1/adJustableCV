@@ -140,7 +140,7 @@ const PDFComponent = ({ Date, adressJob, Soknad, p, p1, p2, p3, p4, p5 }) => {
                 </Page>
               </Document>
             }
-            fileName="example.pdf"
+            fileName="Søknad.pdf"
           >
             {({ blob, url, loading, error }) =>
               loading ? "Loading document..." : "Download now!"
