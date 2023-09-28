@@ -6,7 +6,6 @@ import {
   PDFDownloadLink,
   StyleSheet,
   Image,
-  Font,
 } from "@react-pdf/renderer";
 
 import React, { useState } from "react";
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
   },
   p1: {
     marginTop: 5,
-    marginBottom: 5,
+
     marginLeft: 30,
     marginRight: 30,
     fontSize: 12,
@@ -56,7 +55,7 @@ const styles = StyleSheet.create({
   ending: {
     fontSize: 11,
     marginTop: 5,
-    marginBottom: 5,
+    
     marginLeft: 30,
     marginRight: 30,
   },
@@ -79,31 +78,29 @@ const PDFComponent = ({ Date, adressJob, Soknad, p, p1, p2, p3, p4, p5 }) => {
           */}
           <PDFViewer width="100%" height="500">
             <Document>
-              <Page size="A4" style={styles.page}>
-                <Text style={styles.title}>Lena Cohen</Text>
-                <Text style={styles.ttext}>Spiksetsvingen 159</Text>
-                <Text style={styles.ttext}>2100 Skarnes</Text>
-                <Text style={styles.ttext}>E-post: Lcohenabir82@gmail.com</Text>
-                <Text style={styles.ttext}>{adressJob}</Text>
-                <Text dir="rtl" style={styles.Date}>
-                  {Date}
-                </Text>
-                <Text style={styles.title1}>{Soknad}</Text>
-                <Text style={styles.p1}>{p}</Text>
-                <Text style={styles.p1}>{p1}</Text>
-                <Text style={styles.p1}>{p2}</Text>
-                <Text style={styles.p1}>{p3}</Text>
-                <Text style={styles.p1}>{p4}</Text>
-                <Text style={styles.p1}>{p5}</Text>
-                <Text style={styles.ending}>Vennlig hilsen.</Text>
-                <Image
-                  src={
-                    "https://res.cloudinary.com/ddcbxytoh/image/upload/v1695657527/sign_x5wrsw.png"
-                  }
-                  style={styles.image}
-                />
-                <Text style={styles.ending}>Lena Cohen</Text>
-              </Page>
+            <Page size="A4" style={styles.page}>
+                  <Text style={styles.title}>Lena Cohen       </Text>
+                  <Text style={styles.ttext}>Spiksetsvingen 159  </Text>
+                  <Text style={styles.ttext}>2100 Skarnes     </Text>
+                  <Text style={styles.ttext}>E-post: Lcohenabir82@gmail.com</Text>
+                  <Text style={styles.ttext}>{adressJob}      </Text>
+                  <Text dir="rtl" style={styles.Date}>{Date}           </Text>
+                  <Text style={styles.title}>{Soknad}         </Text>
+                  <Text style={styles.p1}>{p}              </Text>
+                  <Text style={styles.p1}>{p1}             </Text>
+                  <Text style={styles.p1}>{p2}             </Text>
+                  <Text style={styles.p1}>{p3}             </Text>
+                  <Text style={styles.p1}>{p4}             </Text>
+                  <Text style={styles.p1}>{p5}             </Text>
+                  <Text style={styles.ending}>Vennlig hilsen.      </Text>
+                  <Image
+                    src={
+                      "https://res.cloudinary.com/ddcbxytoh/image/upload/v1695657527/sign_x5wrsw.png"
+                    }
+                    style={styles.image}
+                  />
+                  <Text style={styles.ending}>Lena Cohen</Text>
+                </Page>
             </Document>
           </PDFViewer>
 
@@ -112,24 +109,20 @@ const PDFComponent = ({ Date, adressJob, Soknad, p, p1, p2, p3, p4, p5 }) => {
             document={
               <Document>
                 <Page size="A4" style={styles.page}>
-                  <Text style={styles.title}>Lena Cohen</Text>
-                  <Text style={styles.ttext}>Spiksetsvingen 159</Text>
-                  <Text style={styles.ttext}>2100 Skarnes</Text>
-                  <Text style={styles.ttext}>
-                    E-post: Lcohenabir82@gmail.com
-                  </Text>
-                  <Text style={styles.ttext}>{adressJob}</Text>
-                  <Text dir="rtl" style={styles.Date}>
-                    {Date}
-                  </Text>
-                  <Text style={styles.title}>{Soknad}</Text>
-                  <Text style={styles.p1}>{p}</Text>
-                  <Text style={styles.p1}>{p1}</Text>
-                  <Text style={styles.p1}>{p2}</Text>
-                  <Text style={styles.p1}>{p3}</Text>
-                  <Text style={styles.p1}>{p4}</Text>
-                  <Text style={styles.p1}>{p5}</Text>
-                  <Text style={styles.ending}>Vennlig hilsen.</Text>
+                  <Text style={styles.title}>          Lena Cohen       </Text>
+                  <Text style={styles.ttext}>       Spiksetsvingen 159  </Text>
+                  <Text style={styles.ttext}>          2100 Skarnes     </Text>
+                  <Text style={styles.ttext}>E-post: Lcohenabir82@gmail.com</Text>
+                  <Text style={styles.ttext}>          {adressJob}      </Text>
+                  <Text dir="rtl" style={styles.Date}> {Date}           </Text>
+                  <Text style={styles.title}>          {Soknad}         </Text>
+                  <Text style={styles.p1}>             {p}              </Text>
+                  <Text style={styles.p1}>             {p1}             </Text>
+                  <Text style={styles.p1}>             {p2}             </Text>
+                  <Text style={styles.p1}>             {p3}             </Text>
+                  <Text style={styles.p1}>             {p4}             </Text>
+                  <Text style={styles.p1}>             {p5}             </Text>
+                  <Text style={styles.ending}>     Vennlig hilsen.      </Text>
                   <Image
                     src={
                       "https://res.cloudinary.com/ddcbxytoh/image/upload/v1695657527/sign_x5wrsw.png"

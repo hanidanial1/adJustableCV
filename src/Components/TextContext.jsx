@@ -10,8 +10,7 @@ function TextContextProvider({ children }) {
   }.${currentDate.getFullYear()}`;
 
   //here to get the text for pdf
-  const initialArray = [
-    `Jeg vil gjerne uttrykke min sterke interesse for muligheten til a jobbe innen omsorgsfeltet ved [navn på omsorgssted]. Jeg har alltid hatt dyp respekt for eldre og mennesker med spesielle behov, og onsker å bidra til å forbedre deres hverdag.
+  const initialArray = [`Jeg vil gjerne uttrykke min sterke interesse for muligheten til a jobbe innen omsorgsfeltet ved [navn på omsorgssted]. Jeg har alltid hatt dyp respekt for eldre og mennesker med spesielle behov, og onsker å bidra til å forbedre deres hverdag.
 
     Min erfaring som Aktivitør på en avdeling for Alzheimerpasienter har laert meg verdien av omsorg og oppmerksomhet når jeg jobber med eldre.
 
@@ -22,10 +21,7 @@ function TextContextProvider({ children }) {
     Jeg flytter til Skarnes i januar. Jeg er halvt norsk med norsk statsborgerskap. Jeg gleder meg veldig til å møte deg og diskutere hvordan jeg kan bidra til ditt sykehjem. Selv om norskkunnskapene mine for øyeblikket ikke er flytende, er jeg fast bestemt på å forbedre dem raskt mens jeg bor i Norge. Jeg tror at daglig samhandling med bade kolleger og beboere vil hjelpe meg å akselerere denne prosessen. Dessuten er jeg komfortabel med å kommunisere på engelsk når det er nødvendig. I dag bor jeg i Israel.
 
     Jeg ser virkelig frem til å diskutere hvordan mine erfaringer og ferdigheter kan være en fordel for [Navn på sykehjemmet]. Takk for at du vurderer forespørselen min.`
-    
-    ,
-    //add text if wanted to other paragraph 
-    //
+
   ];
 
   const [bodies, setBodies] = useState(initialArray);

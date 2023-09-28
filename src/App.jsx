@@ -11,7 +11,9 @@ function App() {
   const [imgSrc, setImgSrc] = useState(
   "https://res.cloudinary.com/ddcbxytoh/image/upload/v1695736776/IMG_9582_odaiwq.jpg");
   const [inputSrc, setInputSrc] = useState(imgSrc);
-  const [adressejobben, setAdresseJobben] = useState("adresse jobben");
+
+
+ const [adressejobben, setAdresseJobben] = useState("adresse jobben");
   const [isEditingAddress, setIsEditingAddress] = useState(false);
   const [newAddress, setNewAddress] = useState(adressejobben);
 
@@ -19,8 +21,10 @@ function App() {
     setIsEditingAddress(true);
   };
 
- const handleApplyButtonClick = () => {
-    setImgSrc(inputSrc)
+  const handleApplyButtonClick = () => {
+
+    setAdresseJobben(newAddress);
+    setIsEditingAddress(false);
   };
 
   const handleSaveAddress = () => {
@@ -60,7 +64,7 @@ function App() {
     <>
       <PDFComponent
         Date={formattedDate}
-        addressJob={adressejobben}
+        adressJob={adressejobben}
         Soknad={soknad}
         p={bodies[0]}
         p1={bodies[1]}
@@ -83,11 +87,11 @@ function App() {
  */}
         {isEditingAddress ? (
           <>
-            <input
-              type="text"
-              value={newAddress}
-              onChange={(e) => setNewAddress(e.target.value)}
-            />
+          <input
+            type="text"
+            value={newAddress}
+            onChange={(e) => setNewAddress(e.target.value)}
+          />
             <button
               className="btn btn-primary mx-1"
               onClick={handleSaveAddress}
