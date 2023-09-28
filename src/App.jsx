@@ -87,7 +87,7 @@ function App() {
  */}
         {isEditingAddress ? (
           <>
-          <input
+          <textarea
             type="text"
             value={newAddress}
             onChange={(e) => setNewAddress(e.target.value)}
